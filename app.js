@@ -82,7 +82,7 @@ let createCard = (e,res)=>{
     tr.innerHTML =`
         <th scope="row">loading...</th>
         <td>${e.title}</td>
-        <td class="text-center"><button class="btn ${e.completed?'btn-outline-success':'btn-outline-danger'}" onClick="statusHandle"><i class="fa-solid ${e.completed?'fa-check':'fa-xmark'}"></i> ${e.completed?'Completed':'Pending'}</button></td>
+        <td class="text-center"><button class="btn ${e.completed?'btn-outline-success':'btn-outline-danger'}" onClick="statusHandle(this)"><i class="fa-solid ${e.completed?'fa-check':'fa-xmark'}"></i> ${e.completed?'Completed':'Pending'}</button></td>
             <td class="text-center"><button class="btn btn-success" onClick="onEdit(this)">Edit</button></td>
         <td class="text-center"><button class="btn btn-danger" onClick="onRemove(this)">Remove</button></td>
     `
@@ -278,7 +278,7 @@ let statusHandle =async (eve)=>{
             
             updateStatusOnUi[2].innerHTML = 
                     `
-                    <button class="btn ${data.completed?'btn-outline-success':'btn-outline-danger'}" onClick="statusHandle"><i class="fa-solid ${data.completed?'fa-check':'fa-xmark'}"></i> ${data.completed?'Completed':'Pending'}</button>
+                    <button class="btn ${data.completed?'btn-outline-success':'btn-outline-danger'}" onClick="statusHandle(this)"><i class="fa-solid ${data.completed?'fa-check':'fa-xmark'}"></i> ${data.completed?'Completed':'Pending'}</button>
                     `
             snakeBar('Status Changed Successfully')
         }
