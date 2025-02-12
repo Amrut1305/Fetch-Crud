@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Crud</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    
+    <div class="container mt-5">
+      <div class="row mb-5">
+        <div class="col-md-3 mb-3">
+          <div class="filter">
+            <select class="slectFilter form-control" id="filterData">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3 offset-md-6">
+          <button class="btn btn-info btn-block" id="showTodoForm">
+            Add Todo
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 id">
+          <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Sr.No.</th>
+                <th scope="col">To Do Title</th>
+                <th scope="col">Status <br>(click To Change)</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            <tbody id="tBody">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+      <div class="card d-none" id="card">
+        <div class="card-body">
+          <form class="todoForm" id="todoForm">
+            <div class="form-group">
+              <label for="title">to Do Itom</label>
+              <input id="title" class="form-control" type="text">
+            </div>
+            <div class="form-group mb-2">
+              <label for="userId">Select User Id</label>
+              <select id="userId" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+              <button type="submit" class="btn-primary w-100 mb-2" id="todoSubmit">Add To DO</button>
+              <button type="button" class="btn-primary w-100 mb-2 d-none" id="todoUpdate">Update To DO</button>
+              <button type="button" class="btn-warning w-100" id="resetForm">Reset Form</button>
+          </form>
+        </div>
+      </div>
+    
+    
+    <div class="backDrop d-none" id="backDrop">
+
+    </div>
+
+    <div class="loader d-none" id="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

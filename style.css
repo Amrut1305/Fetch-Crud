@@ -1,0 +1,34 @@
+body{
+    background-color: #ededed
+}
+
+.card{
+    width: 50%;
+    position: fixed;
+    z-index: 20;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.7s linear;
+}
+.backDrop{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    cursor: pointer;
+    z-index: 15;
+}
+.loader{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 17;
+    background-color: rgba(0, 0, 0, 0.5);
+}
