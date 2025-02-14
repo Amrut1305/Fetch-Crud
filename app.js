@@ -12,10 +12,10 @@ let userId = document.getElementById('userId')
 let todoSubmit = document.getElementById('todoSubmit')
 let todoUpdate = document.getElementById('todoUpdate')
 let resetForm = document.getElementById('resetForm')
-
+//backDrop And Loader
 let backDrop = document.getElementById('backDrop')
 let loader = document.getElementById('loader')
-
+//table Control
 let tBody = document.getElementById('tBody')
 let filterData = document.getElementById('filterData')
 
@@ -46,13 +46,16 @@ let closeForm = ()=>{
     backDrop.classList.add('d-none');   
 }
 let onShowForm = ()=>{
-    formCard.classList.toggle('d-none');
+    formCard.classList.remove('d-none');
     backDrop.classList.toggle('d-none');
 }
 showTodoForm.addEventListener('click', onShowForm)
 backDrop.addEventListener('click', closeForm)
 
-
+let setSrNo = ()=>{
+    let tBodyChild = [...tBody.children]
+    tBodyChild.forEach((tr,i)=>tr.children[0].innerHTML = i+1)
+}
 
 let templating = arr=>{
     result = ``
@@ -69,12 +72,6 @@ let templating = arr=>{
     });
     tBody.innerHTML=result
 }
-
-let setSrNo = ()=>{
-    let tBodyChild = [...tBody.children]
-    tBodyChild.forEach((tr,i)=>tr.children[0].innerHTML = i+1)
-}
-
 
 let createCard = (e,res)=>{
     let tr = document.createElement('tr');
@@ -114,7 +111,11 @@ let fetchData = async()=>{
         }else{
             let response = await makeApiCall("GET",json_url)
             let jsonData = await response.json(response)
+            let arrdata = Object.keys(jsonData).map(e=>({...data[e],id:e}))
             templating(Object.keys(jsonData).map(e=>({...data[e],id:e})))
+            await arrdata.forEach(e=>{
+                let newRes =  makeApiCall('POST', )
+            })
         }
     }
     catch(err){
@@ -282,7 +283,6 @@ let statusHandle =async (eve)=>{
                     `
             snakeBar('Status Changed Successfully')
         }
-
     }
     catch(err){
         snakeBar(err,'error')
